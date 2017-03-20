@@ -1,0 +1,21 @@
+.jumbotron{
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.listaContent{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /*background-color: red;*/
+}
+
+.form-control, .btn{
+  margin-top: 10px;
+}
+
+.selecionado{
+  background-color: rgba(109,174,204,0.8);
+}
