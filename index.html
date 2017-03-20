@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <script src="lib\angular\angular.js"></script>
     <script src="lib\angular\angular-locale_pt-br.js"></script>
-    <link rel="stylesheet" href="lib\bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib\bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="css\site.css">
     <title>Oh o Pastel</title>
     <script>
       angular.module("ohPastel",[]);
@@ -37,9 +38,12 @@
         $scope.checkTroco = function(pedido){
           var dinherioPago = pedido.dinheiro;
           var custoPastel = pedido.tipoPastel.preco;
-          pedido.troco = dinherioPago - custoPastel
-          pedido.erroTroco = false;
-          if (pedido.troco < 0) return pedido.erroTroco = true;
+          var troco = dinherioPago - custoPastel;
+
+          if (troco < 0 || troco == NaN || troco == null) return true;
+
+          pedido.troco = troco;
+          return false;
         };
 
         $scope.mostraTroco = function(pedido){
@@ -51,39 +55,15 @@
             return pedido.selecionado;
           });
         };
-
       });
     </script>
-    <style>
-      .jumbotron{
-        width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
-
-      .listaContent{
-        width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        /*background-color: red;*/
-      }
-
-      .form-control, .btn{
-        margin-top: 10px;
-      }
-
-      .selecionado{
-        background-color: rgba(109,174,204,0.8);
-      }
-    </style>
   </head>
   <body ng-controller="ohPastelCtrl">
     <div class="jumbotron">
       <h2>Oh o Pastel</h2>
       <form class="form-inline" name="pedidoForm">
         <input type="text" class="form-control" ng-model="pedido.nome" ng-minlength="4" ng-required="true" name="nome" placeholder="Nome">
-        <input type="text" class="form-control" ng-model="pedido.dinheiro" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
+        <input type="number" class="form-control" min="1" ng-model="pedido.dinheiro" ng-pattern="/^\d{1,2}.\d{1,2}$/" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
         <select class="form-control" ng-model="pedido.tipoPastel" ng-required="true" name="tipoPastel"
         ng-options="tipoPastel.tipo + ' ( ' + (tipoPastel.preco | currency) + ' )' for tipoPastel in tipoPasteis">
           <option value="">Selecione o recheio do pastel</option>
