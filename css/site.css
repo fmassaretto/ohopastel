@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.jumbotron > h2{
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 5em;
+}
+
 .listaContent{
   width: 600px;
   margin-left: auto;
