@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <script src="lib\angular\angular.js"></script>
     <script src="lib\angular\angular-locale_pt-br.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     <link rel="stylesheet" href="lib\bootstrap\css\bootstrap.css">
     <link rel="stylesheet" href="css\site.css">
     <title>Oh o Pastel</title>
@@ -31,7 +32,7 @@
 
         $scope.apagarPedido = function(pedidos){
           $scope.pedidos = $scope.pedidos.filter(function(pedido){
-            if (!contato.selecionado) return pedido;
+            if (!pedido.selecionado) return pedido;
           });
         };
 
@@ -63,7 +64,7 @@
       <h2>Oh o Pastel</h2>
       <form class="form-inline" name="pedidoForm">
         <input type="text" class="form-control" ng-model="pedido.nome" ng-minlength="4" ng-required="true" name="nome" placeholder="Nome">
-        <input type="number" class="form-control" min="1" ng-model="pedido.dinheiro" ng-pattern="/^\d{1,2}.\d{1,2}$/" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
+        <input type="number" class="form-control" min="1" ng-model="pedido.dinheiro" ng-pattern="/^\d{1,2}.?\d{1,2}?$/" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
         <select class="form-control" ng-model="pedido.tipoPastel" ng-required="true" name="tipoPastel"
         ng-options="tipoPastel.tipo + ' ( ' + (tipoPastel.preco | currency) + ' )' for tipoPastel in tipoPasteis">
           <option value="">Selecione o recheio do pastel</option>
@@ -78,7 +79,7 @@
         <span ng-show="pedidoForm.nome.$error.required && pedidoForm.nome.$dirty">Por favor, preencha o campo nome!<br/></span>
         <span ng-show="pedidoForm.nome.$error.minlength">O campo nome tem menos de 4 caracteres!<br/></span>
         <span ng-show="pedidoForm.dinheiro.$error.required && pedidoForm.dinheiro.$dirty">Por favor, preencha com o dinheiro pago!<br></span>
-        <span ng-show="pedidoForm.dinheiro.$error.pattern">O campo dinheiro pago tem que ter o formato!<br/></span>
+        <span ng-show="pedidoForm.dinheiro.$error.pattern">O campo dinheiro pago tem que ter o formato ex(12.34)!<br/></span>
         <span ng-show="pedidoForm.tipoPastel.$error.required && pedidoForm.tipoPastel.$dirty">Por favor, selecione o recheio!<br></span>
         <span ng-show="pedido.erroTroco && pedidoForm.dinheiro.$dirty">O valor pago deve ser maior ou igual ao preço do pastel<br></span>
       </div>
