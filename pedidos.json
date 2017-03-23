@@ -1,0 +1,4 @@
+{"nome": "Joao", "dinheiro": 4, "tipoPastel": {"tipo": "Carne", "preco": 2}, "troco": 2},
+{"nome": "Maria", "dinheiro": 3, "tipoPastel": {"tipo": "Frango", "preco": 1.50}, "troco": 1.50},
+{"nome": "Fabio", "dinheiro": 5, "tipoPastel": {"tipo": "Carne", "preco": 2}, "troco": 3},
+{"nome": "Pedro", "dinheiro": 1, "tipoPastel": {"tipo": "Queijo", "preco": 1}, "troco": 0}
