@@ -10,12 +10,28 @@
     <title>Oh o Pastel</title>
     <script>
       angular.module("ohPastel",[]);
-      angular.module("ohPastel").controller("ohPastelCtrl", function($scope){
+      angular.module("ohPastel").controller("ohPastelCtrl", function($scope, $http){
         $scope.tipoPasteis = [
           {tipo: "Carne", preco: 2},
           {tipo: "Frango", preco: 1.50},
           {tipo: "Queijo", preco: 1}
         ];
+
+        var carregaPedidos = function() {
+          $http.get('pedidos.json').then(successCallBack, errorCallBack);
+
+          function successCallBack(response){
+            $scope.teste = response.data;
+            console.log(teste);
+          }
+
+          function errorCallBack(error) {
+
+          }
+        };
+        // $.getJSON("pedidos.json", function(json) {
+        //   console.log(json); // this will show the info it in firebug console
+        // });
 
         $scope.pedidos = [
           {nome: "Joao", dinheiro: 4, tipoPastel: {tipo: "Carne", preco: 2}, troco: 2},
@@ -56,6 +72,8 @@
             return pedido.selecionado;
           });
         };
+
+        carregaPedidos();
       });
     </script>
   </head>
