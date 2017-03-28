@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="lib\bootstrap\css\bootstrap.css">
     <link rel="stylesheet" href="css\site.css">
     <title>Oh o Pastel</title>
-    <script>
-      
-     
-    </script>
   </head>
   <body ng-controller="ohPastelCtrl">
     <div class="jumbotron">
@@ -29,9 +25,8 @@
       ng-disabled="pedidoForm.$invalid || checkTroco(pedido)" name="button">Adicionar Contato</button>
       <button type="button" class="btn btn-danger " ng-click="apagarPedido(pedidos)"
       ng-disabled="!isPedidoSelecionado(pedidos)" name="button">Apagar Contatos</button>
-      {{pedido}}
       </form>
-      <div class="alert alert-danger" ng-show="pedidoForm.$invalid" ng-hide="pedidoForm.$pristine">
+      <div class="alert alert-danger" ng-show="pedidoForm.$invalid" ng-hide="pedidoForm.nome.$error.required && pedidoForm.dinheiro.$error.required">
         <span ng-show="pedidoForm.nome.$error.required && pedidoForm.nome.$dirty">Por favor, preencha o campo nome!<br/></span>
         <span ng-show="pedidoForm.nome.$error.minlength">O campo nome tem menos de 4 caracteres!<br/></span>
         <span ng-show="pedidoForm.dinheiro.$error.required && pedidoForm.dinheiro.$dirty">Por favor, preencha com o dinheiro pago!<br></span>
@@ -44,7 +39,7 @@
       <table class="table">
         <thead>
           <th></th>
-          <th>Nome:</th>
+          <th>Nomes:</th>
           <th>Dinheiro pago:</th>
           <th>Recheio:</th>
           <th>Troco:</th>
@@ -58,7 +53,7 @@
         </tbody>
       </table>
     </div>
+    <script src="lib\jquery\jquery.js"></script>
+    <script src="lib\bootstrap\js\bootstrap.js"></script>
   </body>
-  <script src="lib\jquery\jquery.js"></script>
-  <script src="lib\bootstrap\js\bootstrap.js"></script>
 </html>

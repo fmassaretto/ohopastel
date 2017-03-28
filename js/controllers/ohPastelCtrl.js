@@ -1,16 +1,27 @@
 ﻿angular.module("ohPastel").controller("ohPastelCtrl", function ($scope) {
     $scope.tipoPasteis = [
-      { tipo: "Carne", preco: 2 },
-      { tipo: "Frango", preco: 1.50 },
-      { tipo: "Queijo", preco: 1 }
+      { tipo: "Carne", preco: 5 },
+      { tipo: "Queijo", preco: 5 },
+      { tipo: "Pizza", preco: 5 },
+      { tipo: "Frango c/ Catupiry", preco: 5 },
+      { tipo: "Palmito", preco: 5 },
+      { tipo: "Calabresa c/ Queijo", preco: 5 },
+      { tipo: "Lombo c/ Queijo e Catupiry", preco: 5 },
+      { tipo: "Carne c/ Queijo", preco: 5 },
+      { tipo: "Jabá c/ Queijo", preco: 5 },
+      { tipo: "Escarola c/ Queijo e Catupiry", preco: 5 },
+      { tipo: "Bacalhau c/ Purê de Batata", preco: 5 },
+      { tipo: "Bacon c/ Queijo", preco: 5 },
+      { tipo: "Camarão", preco: 5 },
+      { tipo: "Atum c/ Queijo e Ervilha", preco: 5 },
+      { tipo: "Especial", preco: 5 },
+      { tipo: "Hot Dog", preco: 5 },
+      { tipo: "Portuguesa", preco: 5 },
+      { tipo: "Brócolis c/ Queijo e Bacon", preco: 5 },
+      { tipo: "4 Queijos", preco: 5 }
     ];
 
-    $scope.pedidos = [
-      { nome: "Joao", dinheiro: 4, tipoPastel: { tipo: "Carne", preco: 2 }, troco: 2 },
-      { nome: "Maria", dinheiro: 3, tipoPastel: { tipo: "Frango", preco: 1.50 }, troco: 1.50 },
-      { nome: "Fabio", dinheiro: 5, tipoPastel: { tipo: "Carne", preco: 2 }, troco: 3 },
-      { nome: "Pedro", dinheiro: 1, tipoPastel: { tipo: "Queijo", preco: 1 }, troco: 0 }
-    ];
+    $scope.pedidos = [];
 
     $scope.adicionarPedido = function (pedido) {
         $scope.pedidos.push(angular.copy(pedido));
