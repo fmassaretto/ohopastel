@@ -38,18 +38,22 @@
     <div class="listaContent">
       <table class="table">
         <thead>
-          <th></th>
-          <th>Nomes:</th>
-          <th>Dinheiro pago:</th>
-          <th>Recheio:</th>
-          <th>Troco:</th>
+            <tr>
+                <th></th>
+                <th>Nomes:</th>
+                <th>Dinheiro pago:</th>
+                <th>Recheio:</th>
+                <th>Troco:</th>
+            </tr>
         </thead>
         <tbody ng-class="{selecionado: pedido.selecionado}" ng-repeat="pedido in pedidos">
-          <td><input type="checkbox" ng-model="pedido.selecionado"></td>
-          <td>{{pedido.nome}}</td>
-          <td>{{pedido.dinheiro | currency}}</td>
-          <td>{{pedido.tipoPastel.tipo}}</td>
-          <td>{{mostraTroco(pedido) | currency}}</td>
+            <tr>
+                <td><input type="checkbox" ng-model="pedido.selecionado"></td>
+                <td>{{pedido.nome}}</td>
+                <td>{{pedido.dinheiro | currency}}</td>
+                <td>{{pedido.tipoPastel.tipo}}</td>
+                <td>{{mostraTroco(pedido) | currency}}</td>
+            </tr>         
         </tbody>
       </table>
     </div>
