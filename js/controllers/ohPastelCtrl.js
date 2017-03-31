@@ -23,10 +23,17 @@
 
     $scope.pedidos = [];
 
+    var quantidadesRecheio = []
+
+    $scope.mostraQuantidades = function (pedido) {
+        console.log(pedido.tipoPastel);
+    };
+
     $scope.adicionarPedido = function (pedido) {
         $scope.pedidos.push(angular.copy(pedido));
         delete $scope.pedido;
         $scope.pedidoForm.$setPristine();
+        $scope.mostraQuantidades(pedido);
     };
 
     $scope.apagarPedido = function (pedidos) {
