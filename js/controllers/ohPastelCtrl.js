@@ -23,10 +23,17 @@
 
     $scope.pedidos = [];
 
+    var allRecheioQuantidade = [];
+
+    $scope.quantidadePasteis = function (pedido) {
+        
+    };
+
     $scope.adicionarPedido = function (pedido) {
         $scope.pedidos.push(angular.copy(pedido));
         delete $scope.pedido;
         $scope.pedidoForm.$setPristine();
+        $scope.quantidadePasteis(pedido);
     };
 
     $scope.apagarPedido = function (pedidos) {
@@ -40,7 +47,7 @@
         var custoPastel = pedido.tipoPastel.preco;
         var troco = dinherioPago - custoPastel;
 
-        if (troco < 0 || troco == NaN || troco == null) return true;
+        if (troco < 0 || troco === isNaN || troco === null) return true;
 
         pedido.troco = troco;
         return false;
