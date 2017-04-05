@@ -16,7 +16,7 @@
       <h2>Oh o Pastel</h2>
       <form class="form-inline" name="pedidoForm">
         <input type="text" class="form-control" ng-model="pedido.nome" ng-minlength="4" ng-required="true" name="nome" placeholder="Nome">
-        <input type="number" class="form-control" min="1" ng-model="pedido.dinheiro" ng-pattern="/^\d{1,2}.?\d{1,2}?$/" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
+        <input type="number" class="form-control" min="1" ng-model="pedido.dinheiro" ng-pattern="/^\d{1,2}.\d{1,2}$/" ng-required="true" name="dinheiro" placeholder="Dinheiro pago">
         <select class="form-control" ng-model="pedido.tipoPastel" ng-required="true" name="tipoPastel"
         ng-options="tipoPastel.tipo + ' ( ' + (tipoPastel.preco | currency) + ' )' for tipoPastel in tipoPasteis">
           <option value="">Selecione o recheio do pastel</option>
