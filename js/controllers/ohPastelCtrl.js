@@ -39,7 +39,10 @@
 
     $scope.apagarPedido = function (pedidos) {
         $scope.pedidos = $scope.pedidos.filter(function (pedido) {
-            if (!pedido.selecionado) return pedido;
+            if (!pedido.selecionado)
+                return pedido;
+            else
+                //fazer uma rotina para zera a qtde dos pedidos selecionados
         });
     };
 
