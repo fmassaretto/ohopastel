@@ -23,9 +23,6 @@
 
     $scope.pedidos = [];
 
-    var arrQtdeRecheio = [];
-    var quantidadesRecheio = {};
-
     $scope.setQuantidades = function (pedido) {
         for (var i = 0; i < $scope.tipoPasteis.length; i++) {
             if ($scope.tipoPasteis[i].tipo == pedido.tipoPastel.tipo)
